@@ -39,7 +39,9 @@
     "mocha": "^8.2.1",
     "prettier": "^2.1.2",
     "ts-node": "^9.0.0",
-    "winston": "^3.3.3"
+    "winston": "^3.3.3",
+    "wdio-reportportal-reporter": "6.4.0",
+    "wdio-reportportal-service": "6.4.0"
   },
   "scripts": {
     "test": "mocha",
