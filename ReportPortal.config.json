@@ -1,0 +1,19 @@
+{
+    "reportPortalClientConfig": {
+      "token": "<place token at RP_USERUUID of .env file>",
+      "endpoint": "https://demo.reportportal.io/api/v1",
+      "launch": "ramakreddy_TEST_EXAMPLE",
+      "project": "ramakreddy_personal",
+      "debug": false,
+      "description": "WDIO-ReportPortal integration test",
+      "tags": [
+        "demo",
+        "RP",
+        "WDIO",
+        "tag4"
+      ]
+    },
+    "reportSeleniumCommands": false,
+    "seleniumCommandsLogLevel": "debug",
+    "parseTagsFromTestTitle": true
+  }
