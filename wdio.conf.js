@@ -7,10 +7,10 @@ let overrides = {
       browserName: 'chrome',
       'goog:chromeOptions': {
         args: [
-          // '--headless',
-          // // '--disable-dev-shm-usage', // Force Chrome to use the /tmp directory instead. This may slow down the execution though.
-          // '--disable-gpu',
-          // '--no-sandbox',
+          '--headless',
+          '--disable-dev-shm-usage', // Force Chrome to use the /tmp directory instead. This may slow down the execution though.
+          '--disable-gpu',
+          '--no-sandbox',
           // '--window-size=1920,1080',
         ],
       },
