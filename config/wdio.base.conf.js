@@ -37,13 +37,13 @@ exports.config = {
   connectionRetryTimeout: 90000,
 
   connectionRetryCount: 3,
-  services: ['chromedriver'],
+  services: ['chromedriver',[RpService, {}]],
   framework: process.env.FRAMEWORK,
   //   =================
   // Reporters
   // =================
   // ...reporters,
-
+  reporters: [ [reportportal, rpConf] ],
   // reporters: [
   //   [
   //     'junit',
