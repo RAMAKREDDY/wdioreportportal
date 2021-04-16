@@ -1,0 +1,33 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ubuntu-job:
+    name: 'Mobile Tests'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout the repository'
+        uses: actions/checkout@v2
+        
+      # ------- Build ---------------
+      - name: 'Build'
+        run: npm install
+        
+      # ------ Lint ----------------
+      - name: 'Lint'
+        run: npm run lint:eslint
+        
+      # -------------- Test Components ------------------
+      # 1.Home
+      - name: 'Home Bucket'
+        run: npm run website.automation.test
+        if: always()
