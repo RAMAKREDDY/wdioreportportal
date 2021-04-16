@@ -22,10 +22,6 @@ jobs:
       - name: 'Build'
         run: npm install
         
-      # ------ Lint ----------------
-      - name: 'Lint'
-        run: npm run lint:eslint
-        
       # -------------- Test Components ------------------
       # 1.Home
       - name: 'Home Bucket'
