@@ -32,4 +32,4 @@ jobs:
         if: always()
         continue-on-error: true
         env:
-          github_token: ${{ secrets.SLACK_WEBHOOK }}
+          github_token: ${{ secrets.SLACK_SECRET }}
