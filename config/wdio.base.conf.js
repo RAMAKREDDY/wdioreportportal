@@ -44,7 +44,7 @@ exports.config = {
 
   connectionRetryCount: 3,
   services: ['chromedriver',[RpService, {}],[slack, {
-            webHookUrl: "https://hooks.slack.com/services/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", // Used to post notification to a particular channel
+            webHookUrl: "https://hooks.slack.com/services/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", // Used to post notification to a particular channel
             notifyOnlyOnFailure: true, // Send notification only on test failure
             messageTitle: "<NOTIFICATION_TITLE>" // Name of the notification
         }]],
