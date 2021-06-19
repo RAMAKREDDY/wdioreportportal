@@ -29,5 +29,7 @@ jobs:
         if: always()
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
+        if: always()
+        continue-on-error: true
         env:
           github_token: ${{ secrets.SLACK_WEBHOOK }}
