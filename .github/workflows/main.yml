@@ -33,4 +33,5 @@ jobs:
         if: always()
         continue-on-error: true
         env:
+          SLACK_COLOR: ${{ job.status }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
