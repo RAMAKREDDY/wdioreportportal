@@ -26,7 +26,8 @@ jobs:
       # 1.Home
       - name: 'Home Bucket'
         run: npm run website.automation.test
-        if: always()        
+        if: always()
+        
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         if: always()
