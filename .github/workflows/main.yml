@@ -32,4 +32,4 @@ jobs:
         if: always()
         continue-on-error: true
         env:
-          SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
