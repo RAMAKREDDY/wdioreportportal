@@ -36,8 +36,7 @@ jobs:
         with:
          channel: test-result
          status: SUCCESS
-         color: good
-         
+         color: good       
       - name: Notify slack fail
         if: failure()
         env:
