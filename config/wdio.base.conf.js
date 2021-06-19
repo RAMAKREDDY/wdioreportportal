@@ -4,6 +4,7 @@ const suites = require('./suites.config').config;
 let screenshotName = '';
 const reportportal = require('wdio-reportportal-reporter');
 const RpService = require("wdio-reportportal-service");
+const slack = require('wdio-slack-service');
 
 const rpConf = JSON.parse(require('fs').readFileSync('ReportPortal.config.json'));
 rpConf.reportPortalClientConfig.token = process.env.RP_USERUUID
@@ -42,7 +43,11 @@ exports.config = {
   connectionRetryTimeout: 90000,
 
   connectionRetryCount: 3,
-  services: ['chromedriver',[RpService, {}]],
+  services: ['chromedriver',[RpService, {}],[slack, {
+            webHookUrl: "https://hooks.slack.com/services/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", // Used to post notification to a particular channel
+            notifyOnlyOnFailure: true, // Send notification only on test failure
+            messageTitle: "<NOTIFICATION_TITLE>" // Name of the notification
+        }]],
   framework: process.env.FRAMEWORK,
   //   =================
   // Reporters
