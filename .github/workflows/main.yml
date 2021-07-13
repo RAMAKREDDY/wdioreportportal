@@ -17,7 +17,7 @@ jobs:
           owner: RAMAKREDDY
           repo: datatable
           github_token: ${{ secrets.PAT_TOKEN }}
-          workflow_file_name: main.yml
+          workflow_file_name: testreporter.yml
       - name: Deploy Web App
         run: |
           echo "Deploy Web App"
