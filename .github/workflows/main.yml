@@ -1,36 +1,18 @@
-# This is a basic workflow to help you get started with Actions
+name: Remote Dispatch Action Responder
 
-name: CI
-
-# Controls when the action will run. 
-on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [repository_dispatch]
 
 jobs:
-  ubuntu-job:
-    name: 'Mobile Tests'
+  ping-pong:
     runs-on: ubuntu-latest
     steps:
-     - name: Event Information
-        run:|
+      - name: Event Information
+        run: |
           echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
-     - name: PONG - Dispatch response to received PING
-       if: github.event.action == 'ping'
-     - name: 'Checkout the repository'
-       uses: actions/checkout@v2
-        
-      # ------- Build ---------------
-     - name: 'Build'
-       run: npm install
-        
-      # -------------- Test Components ------------------
-      # 1.Home
-     - name: 'Home Bucket'
-       run: npm run website.automation.test
-       if: always()
-        
- 
+      - name: PONG - Dispatch response to received PING
+        if: github.event.action == 'ping'
+        run: |
+          curl -X POST https://api.github.com/repos/RAMAKREDDY/datatable/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.REPORTPORTAL_REPO_TOKEN }} \
+          --data '{"event_type": "pong", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
