@@ -15,17 +15,22 @@ jobs:
     name: 'Mobile Tests'
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout the repository'
-        uses: actions/checkout@v2
+     - name: Event Information
+        run:|
+          echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
+     - name: PONG - Dispatch response to received PING
+       if: github.event.action == 'ping'
+     - name: 'Checkout the repository'
+       uses: actions/checkout@v2
         
       # ------- Build ---------------
-      - name: 'Build'
-        run: npm install
+     - name: 'Build'
+       run: npm install
         
       # -------------- Test Components ------------------
       # 1.Home
-      - name: 'Home Bucket'
-        run: npm run website.automation.test
-        if: always()
+     - name: 'Home Bucket'
+       run: npm run website.automation.test
+       if: always()
         
  
